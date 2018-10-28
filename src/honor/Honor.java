@@ -1,5 +1,4 @@
 package honor;
-
 /**
  * @author jiaoxijie
  * @version 1.0
@@ -7,7 +6,6 @@ package honor;
  */
 import java.util.Scanner;
 import java.util.Random;
-
 /**
 战场控制模块
 */
@@ -26,17 +24,6 @@ class BattleField{
 			for(j = 0 ; j < 20; j++)
 				A[i][j] = '0';
 		n = rand.nextInt(100);
-		if(n <= 30)
-			System.out.println("This will be a simple game. ");
-		else 
-			if(30 < n && n <= 70)
-				System.out.println("This will be a medium game!");
-			else
-				System.out.println("This will be a hard game!!");
-		
-		System.out.println("Your mission: you need to move the ten heroes towards the right down side of the field. You can "
-				+ "move them, and you can also let them use skills. ");
-		
 		for(i = 0; i < n; i++)
 		{
 			m = rand.nextInt(20);
@@ -75,8 +62,7 @@ class Character{
 	 @param direction 控制英雄移动方向。
 	 */
 	public void move(int num, char direction) {
-		System.out.println(x);
-		System.out.println(y);
+		
 		switch(direction)
 		{
 		case 'a':
@@ -156,6 +142,24 @@ class Character{
 			break;
 		}
 	}
+	public int ret_x(){
+		return x;
+	}
+	public int ret_y(){
+		return y;
+	}
+	public int ret_Hp()
+	{
+		return Hp;
+	}
+	public int ret_Mp()
+	{
+		return Mp;
+	}
+	public int ret_Exp()
+	{
+		return Exp;
+	}
 }
 /**
  * 继承Character类，第一个类别英雄
@@ -189,6 +193,8 @@ class typeone extends Character{
 					if(Exp >= 100)
 					{
 						level++;
+						Hp = 100;
+						Mp = 100;
 						Exp = 0;
 					}
 				}
@@ -209,6 +215,8 @@ class typeone extends Character{
 					if(Exp >= 100)
 					{
 						level++;
+						Hp = 100;
+						Mp = 100;
 						Exp = 0;
 					}
 				}
@@ -228,6 +236,8 @@ class typeone extends Character{
 					if(Exp >= 100)
 					{
 						level++;
+						Hp = 100;
+						Mp = 100;
 						Exp = 0;
 					}
 				}
@@ -248,6 +258,8 @@ class typeone extends Character{
 					if(Exp >= 100)
 					{
 						level++;
+						Hp = 100;
+						Mp = 100;
 						Exp = 0;
 					}
 				}
@@ -281,6 +293,8 @@ class typetwo extends Character{
 				if(Exp >= 100)
 				{
 					level++;
+					Hp = 100;
+					Mp = 100;
 					Exp = 0;
 				}
 				BattleField.Print();
@@ -296,6 +310,8 @@ class typetwo extends Character{
 				if(Exp >= 100)
 				{
 					level++;
+					Hp = 100;
+					Mp = 100;
 					Exp = 0;
 				}
 				BattleField.Print();
@@ -311,6 +327,8 @@ class typetwo extends Character{
 				if(Exp >= 100)
 				{
 					level++;
+					Hp = 100;
+					Mp = 100;
 					Exp = 0;
 				}
 				BattleField.Print();
@@ -326,6 +344,8 @@ class typetwo extends Character{
 				if(Exp >= 100)
 				{
 					level++;
+					Hp = 100;
+					Mp = 100;
 					Exp = 0;
 				}
 				BattleField.Print();
@@ -340,7 +360,7 @@ class typetwo extends Character{
 public class Honor {
     static Character [] Role = new Character [10];
     static BattleField Field = new BattleField();
-    
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
@@ -365,7 +385,6 @@ public class Honor {
 				m = rand.nextInt(5);
 				k = rand.nextInt(5);
 			} while(BattleField.A[k][m] != '0');
-			
 			Role[i].x = m;
 			Role[i].y = k;
 			BattleField.A[k][m] = Role[i].Name;
@@ -381,8 +400,7 @@ public class Honor {
 		while((c = in.next().charAt(0)) != 'Q')
 		{
 			num = in.nextInt();
-			System.out.print("You are controling Hero ");
-			System.out.println((char)(num + 64));
+			System.out.println("You are controling Hero " + (char)(num + 64));
 			System.out.println("Do you want to move or use the skill? 1 or 2");
 			l = in.nextInt();
 			if(l == 1)
