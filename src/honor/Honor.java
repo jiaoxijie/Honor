@@ -53,9 +53,27 @@ class BattleField{
 */
 class Character{
 
+	/**Name 英雄编号
+	 */
 	public char Name;
-	public int Hp = 100, Mp = 100, Exp = 0, level = 0;
-	public int x,y;
+	/** Hp 生命值
+	 */
+	public int Hp = 100;
+	 /** Mp 魔法值
+	  */
+	public int Mp = 100;
+	 /** Exp 经验值
+	  */
+	public int Exp = 0;
+	/**英雄等级
+	 */
+	public int level = 0;
+	/**  x轴坐标 
+	 */
+	public int x;
+	/**  y轴坐标
+	 */
+	public int y;
 	/**
 	 控制人物移动。
 	 @param num 控制英雄选择。
