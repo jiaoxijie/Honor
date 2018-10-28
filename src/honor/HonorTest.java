@@ -7,27 +7,39 @@ class HonorTest {
 	
 	@Test
 	void test_Mp() {
-		typeone A = new typeone();
-		A.skill(1, 's');
-		assertEquals(90,A.ret_Mp());
+		Random rand = new Random();
+		
+		int i;
+		char c;
+		for(i = 0; i < 10; i++)
+		{
+			typeone A = new typeone();
+			A.skill(i+1, 's');
+			assertEquals(90 ,A.ret_Mp());
+		}
 	}
 	
 	@Test
 	void test_Hp() {
-		typeone A = new typeone();
-		A.skill(1, 's');
-		assertEquals(100,A.ret_Hp());
+		Random rand = new Random();
+		int i;
+		for(i = 0; i < 10; i++)
+		{
+			typeone A = new typeone();
+			A.skill(i+1, 's');
+			assertEquals(100 ,A.ret_Hp());
+		}
 	}
 	
 	@Test
 	void test_Boundary() {
 		Random rand = new Random();
-		typeone A = new typeone();
-		int i, j;
+		int i;
 		char c;
 		for(i = 0; i < 10; i++)
 		{
-			c = (char)(rand.nextInt(10)+64);
+			typeone A = new typeone();
+			c = (char)(rand.nextInt(10)+65);
 			A.skill(i+1, 's');
 			assertEquals(true,(A.ret_x() < 20));
 			assertEquals(true,(A.ret_y() < 20));

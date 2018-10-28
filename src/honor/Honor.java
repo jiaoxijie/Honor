@@ -364,8 +364,8 @@ public class Honor {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
-		int i, j;
-		int n ,m ,k;
+		int i;
+		int m ,k;
 		Field.Initiate();
 		BattleField.Print();
 		
