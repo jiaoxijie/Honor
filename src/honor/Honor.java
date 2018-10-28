@@ -67,10 +67,8 @@ class BattleField{
 class Character{
 
 	public char Name;
-	public int Hp = 100, Mp = 100, Exp = 0;
-	public int x;
-	public int y;
-	
+	public int Hp = 100, Mp = 100, Exp = 0, level = 0;
+	public int x,y;
 	/**
 	 控制人物移动。
 	 @param num 控制英雄选择。
@@ -185,6 +183,15 @@ class typeone extends Character{
 			{
 				if(t > 1)
 					BattleField.A[y][x1] = '0';
+				if(BattleField.A[y][x1-1] == '*')
+				{
+					Exp += 10;
+					if(Exp >= 100)
+					{
+						level++;
+						Exp = 0;
+					}
+				}
 				BattleField.A[y][--x1] = '-';
 				BattleField.Print();
 				t++;
@@ -196,6 +203,15 @@ class typeone extends Character{
 			{
 				if(t > 1)
 					BattleField.A[y1][x] = '0';
+				if(BattleField.A[y1+1][x] == '*')
+				{
+					Exp += 10;
+					if(Exp >= 100)
+					{
+						level++;
+						Exp = 0;
+					}
+				}
 				BattleField.A[++y1][x] = '-';
 				BattleField.Print();
 				t++;
@@ -206,6 +222,15 @@ class typeone extends Character{
 			{
 				if(t > 1)
 					BattleField.A[y1][x] = '0';
+				if(BattleField.A[y1-1][x] == '*')
+				{
+					Exp += 10;
+					if(Exp >= 100)
+					{
+						level++;
+						Exp = 0;
+					}
+				}
 				BattleField.A[--y1][x] = '-';
 				BattleField.Print();
 				t++;
@@ -217,6 +242,15 @@ class typeone extends Character{
 			{
 				if(t > 1)
 					BattleField.A[y][x1] = '0';
+				if(BattleField.A[y][x1+1] == '*')
+				{
+					Exp += 10;
+					if(Exp >= 100)
+					{
+						level++;
+						Exp = 0;
+					}
+				}
 				BattleField.A[y][++x1] = '-';
 				BattleField.Print();
 				t++;
@@ -243,6 +277,12 @@ class typetwo extends Character{
 			if(BattleField.A[y][x-1] == '*')
 			{
 				BattleField.A[y][x-1] = '0';
+				Exp += 10;
+				if(Exp >= 100)
+				{
+					level++;
+					Exp = 0;
+				}
 				BattleField.Print();
 			}
 			else 
@@ -252,6 +292,12 @@ class typetwo extends Character{
 			if(BattleField.A[y+1][x-1] == '*')
 			{
 				BattleField.A[y+1][x-1] = '0';
+				Exp += 10;
+				if(Exp >= 100)
+				{
+					level++;
+					Exp = 0;
+				}
 				BattleField.Print();
 			}
 			else 
@@ -261,6 +307,12 @@ class typetwo extends Character{
 			if(BattleField.A[y-1][x] == '*')
 			{
 				BattleField.A[y-1][x] = '0';
+				Exp += 10;
+				if(Exp >= 100)
+				{
+					level++;
+					Exp = 0;
+				}
 				BattleField.Print();
 			}
 			else 
@@ -270,6 +322,12 @@ class typetwo extends Character{
 			if(BattleField.A[y][x+1] == '*')
 			{
 				BattleField.A[y][x+1] = '0';
+				Exp += 10;
+				if(Exp >= 100)
+				{
+					level++;
+					Exp = 0;
+				}
 				BattleField.Print();
 			}			
 			else 
@@ -280,12 +338,10 @@ class typetwo extends Character{
 }
 
 public class Honor {
-	
     static Character [] Role = new Character [10];
     static BattleField Field = new BattleField();
     
 	public static void main(String[] args) {
-
 		Scanner in = new Scanner(System.in);
 		Random rand = new Random();
 		int i, j;
@@ -302,7 +358,6 @@ public class Honor {
 				Role[i] = new typetwo();
 			Role[i].Name = (char)(i + 65);
 		}
-		
 		for(i = 0; i < 10; i++)
 		{
 			do
@@ -322,16 +377,14 @@ public class Honor {
 		System.out.println("Enter 'w' to move forward");
 		System.out.println("Enter 'Q' to quit");
 		char c;
-		int num;
-		int l;
+		int num, l;
 		while((c = in.next().charAt(0)) != 'Q')
 		{
 			num = in.nextInt();
-			System.out.print("You are controlling Hero ");
+			System.out.print("You are controling Hero ");
 			System.out.println((char)(num + 64));
 			System.out.println("Do you want to move or use the skill? 1 or 2");
 			l = in.nextInt();
-			
 			if(l == 1)
 				Role[num-1].move(num, c);
 			else
@@ -340,6 +393,8 @@ public class Honor {
 				else
 					((typetwo) Role[num-1]).skill(num, c);
 		}
+		for(i = 0; i < 10; i++)
+			System.out.println("The level of Hero " + (char)(i + 65) + " is " + Role[i].level);
 		in.close();
 	}
 }
