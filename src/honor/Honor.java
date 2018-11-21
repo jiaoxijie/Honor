@@ -160,11 +160,8 @@ public class Honor{
 		mapthread map = new mapthread();
 		machinethread machine = new machinethread();
 		processthread process = new processthread();
-		Thread th1 = new Thread(map);
-		Thread th2 = new Thread(machine);
-		Thread th3 = new Thread(process);
-		th1.start();
-		th2.start();
-		th3.start();
+		new Thread(map).start();
+		new Thread(machine).start();
+		new Thread(process).start();
 	}
 }
