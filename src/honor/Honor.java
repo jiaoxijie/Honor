@@ -5,7 +5,6 @@ package honor;
  * @date 2018.10.28
  */
 import java.awt.Container;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,10 +25,10 @@ public class Honor{
 	static class mapthread implements Runnable{
 		@Override
 		public synchronized void run() {
-			String s;
 			while(true)
 			{
 				int i, j;
+				String s;
 				jta.setText("");
 		        for (i = 0; i < 20; i++) {
 		        	for(j=0; j<20; j++)
@@ -41,7 +40,7 @@ public class Honor{
 		        	jta.append("\n");
 		        }
 		            JPanel jp = new JPanel();
-			        jp.setBounds(0, 0, 1000, 1000);
+			        jp.setBounds(0, 0, 500, 500);
 			        jp.setLayout(null);
 			        jp.add(jta);
 			        con.add(jp);

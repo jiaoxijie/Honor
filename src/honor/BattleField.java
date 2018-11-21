@@ -37,17 +37,4 @@ public class BattleField{
 		k = rand.nextInt(20);
 		return k;
 	}
-	/*public synchronized static void Print() {
-		
-		int i, j;
-		for(i = 0; i < 22; i++)
-		{
-			for(j = 0; j < 20; j++)
-			{
-				System.out.print(BattleField.A[i][j]);
-				System.out.print(' ');
-			}
-			System.out.println();
-		}
-		}*/
 }
