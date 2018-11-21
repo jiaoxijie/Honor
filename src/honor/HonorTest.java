@@ -6,9 +6,40 @@ import org.junit.jupiter.api.Test;
 class HonorTest {
 	
 	@Test
+	void test_barrier() {
+		Random rand = new Random();
+		int i;
+		for(i = 0; i < 10; i++)
+		{
+			BattleField A = new BattleField();
+			assertEquals(true ,(A.get_x() != '*'));
+		}
+	}
+	@Test
+	void test_x() {
+		Random rand = new Random();
+		int i;
+		for(i = 0; i < 10; i++)
+		{
+			BattleField A = new BattleField();
+			assertEquals(true ,(A.get_x() < 20));
+		}
+	}
+	@Test
+	void test_y() {
+		Random rand = new Random();
+		int i;
+		for(i = 0; i < 10; i++)
+		{
+			BattleField A = new BattleField();
+			assertEquals(true ,(A.get_y() < 20));
+		}
+	}
+	
+	
+	@Test
 	void test_Mp() {
 		Random rand = new Random();
-		
 		int i;
 		char c;
 		for(i = 0; i < 10; i++)
